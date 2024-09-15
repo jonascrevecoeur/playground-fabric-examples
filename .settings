@@ -1,0 +1,5 @@
+tenant=55226c2c-0b83-4621-a5cd-e8e0e57ec920 # dataminded Azure tenant
+subscription=4b72a73f-e970-40e1-b041-499eebd327a7 # playground subscription
+region=westeurope
+resource_group_name=fabric-examples
+capacity_name=datamindedplayground
