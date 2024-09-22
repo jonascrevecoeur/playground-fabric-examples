@@ -20,7 +20,10 @@
               "typeProperties": {
                 "location": {
                   "type": "AzureBlobFSLocation",
-                  "fileSystem": "dev",
+                  "fileSystem": {
+                    "value": "@pipeline().parameters.environment",
+                    "type": "Expression"
+                  },
                   "fileName": "raw_customers.csv"
                 },
                 "columnDelimiter": ",",
@@ -135,7 +138,10 @@
               "typeProperties": {
                 "location": {
                   "type": "AzureBlobFSLocation",
-                  "fileSystem": "dev",
+                  "fileSystem": {
+                    "value": "@pipeline().parameters.environment",
+                    "type": "Expression"
+                  },
                   "fileName": "raw_orders.csv"
                 },
                 "columnDelimiter": ",",
@@ -261,7 +267,10 @@
               "typeProperties": {
                 "location": {
                   "type": "AzureBlobFSLocation",
-                  "fileSystem": "dev",
+                  "fileSystem": {
+                    "value": "@pipeline().parameters.environment",
+                    "type": "Expression"
+                  },
                   "fileName": "raw_payments.csv"
                 },
                 "columnDelimiter": ",",
@@ -368,6 +377,11 @@
         "name": "Ingest_payments",
         "dependsOn": []
       }
-    ]
+    ],
+    "parameters": {
+      "environment": {
+        "type": "String"
+      }
+    }
   }
 }
