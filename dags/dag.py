@@ -1,30 +1,24 @@
+import os
+from pathlib import Path
 from datetime import datetime
-from airflow import DAG
-from airflow.operators.bash import BashOperator
 from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 
-# Define the default arguments for the DAG
-default_args = {
-    "owner": "airflow",
-    "depends_on_past": False,
-    "start_date": datetime(2023, 5, 1),
-    "email_on_failure": False,
-    "email_on_retry": False,
-    "retries": 1,
-}
+DEFAULT_DBT_ROOT_PATH = Path(__file__).parent.parent / "dags" / "fabric_demo"
+DBT_ROOT_PATH = Path(os.getenv("DBT_ROOT_PATH", DEFAULT_DBT_ROOT_PATH))
+profile_config = ProfileConfig(
+    profile_name="fabric_demo",
+    target_name="dev",
+    profiles_yml_filepath=DBT_ROOT_PATH / "profiles.yml",
+)
 
-# Instantiate the DAG object
-with DAG(
-    "dags-dag3.py",
-    default_args=default_args,
-    description="A simple Hello World DAG 2",
-    schedule_interval=None,
+dbt_fabric_dag = DbtDag(
+    project_config=ProjectConfig(
+        DBT_ROOT_PATH,
+    ),
+    operator_args={"install_deps": True},
+    profile_config=profile_config,
+    schedule_interval="@daily",
+    start_date=datetime(2023, 9, 10),
     catchup=False,
-) as dag:
-    # Define the tasks
-    hello_task = BashOperator(
-        task_id="hello_world_task", bash_command='echo "Hello, World!"'
-    )
-
-    # Set the task dependencies
-    hello_task
+    dag_id="dbt_fabric_dag",
+)
