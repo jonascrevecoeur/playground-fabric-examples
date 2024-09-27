@@ -1,6 +1,7 @@
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.bash import BashOperator
+from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 
 # Define the default arguments for the DAG
 default_args = {
@@ -14,7 +15,7 @@ default_args = {
 
 # Instantiate the DAG object
 with DAG(
-    "dags-dag2.py",
+    "dags-dag3.py",
     default_args=default_args,
     description="A simple Hello World DAG 2",
     schedule_interval=None,
