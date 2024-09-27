@@ -14,9 +14,9 @@ default_args = {
 
 # Instantiate the DAG object
 with DAG(
-    "dags-dag.py",
+    "dags-dag2.py",
     default_args=default_args,
-    description="A simple Hello World DAG",
+    description="A simple Hello World DAG 2",
     schedule_interval=None,
     catchup=False,
 ) as dag:
