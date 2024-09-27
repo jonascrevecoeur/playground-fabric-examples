@@ -92,3 +92,10 @@ curl -H 'Content-Type: application/json' \
      -H "Authorization: Bearer $fabric_token" \
      -X GET \
      https://api.fabric.microsoft.com/v1/workspaces
+
+
+# curl -H 'Content-Type: application/json' \
+#      -H "Authorization: Bearer $fabric_token" \
+#      -X POST \
+#      -d "{\"displayName\": \"warehouse\"}" \
+#      https://api.fabric.microsoft.com/v1/workspaces/1f3179d1-fee8-4af1-95a1-bf00be0e983e/warehouses
