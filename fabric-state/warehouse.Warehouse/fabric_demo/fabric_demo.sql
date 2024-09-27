@@ -1,0 +1,1 @@
+CREATE SCHEMA fabric_demo;

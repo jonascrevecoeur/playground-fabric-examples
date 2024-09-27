@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Environment",
+    "displayName": "dbt",
+    "description": "Environment"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9155d952-f2b3-4bf2-8604-c1aaece7e245"
+  }
+}
