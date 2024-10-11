@@ -8,8 +8,8 @@
 # META   },
 # META   "dependencies": {
 # META     "environment": {
-# META       "environmentId": "7b44103e-621b-4cb1-a575-dd8cf59ce8c6",
-# META       "workspaceId": "1f3179d1-fee8-4af1-95a1-bf00be0e983e"
+# META       "environmentId": "9155d952-f2b3-4bf2-8604-c1aaece7e245",
+# META       "workspaceId": "00000000-0000-0000-0000-000000000000"
 # META     }
 # META   }
 # META }
@@ -19,6 +19,40 @@
 client_id = ""
 client_secret = ""
 tenant_id = "55226c2c-0b83-4621-a5cd-e8e0e57ec920"
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+mssparkutils.credentials.getToken("https://vault.azure.net")[2:]
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+mssparkutils.credentials.getToken("https://graph.microsoft.com/")[2:]
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+# storage_bearer = mssparkutils.credentials.getToken("https://storage.azure.com/")
+# storage_bearer[2:]
 
 # METADATA ********************
 

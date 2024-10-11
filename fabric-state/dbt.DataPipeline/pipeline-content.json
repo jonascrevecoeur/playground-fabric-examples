@@ -45,27 +45,7 @@
         "type": "TridentNotebook",
         "typeProperties": {
           "notebookId": "57e639e2-2a00-478d-a04a-c0cdcff1b661",
-          "workspaceId": "00000000-0000-0000-0000-000000000000",
-          "parameters": {
-            "client_id": {
-              "value": {
-                "value": "@activity('Get client-id').output.value",
-                "type": "Expression"
-              },
-              "type": "string"
-            },
-            "client_secret": {
-              "value": {
-                "value": "@activity('Get client-secret').output.value",
-                "type": "Expression"
-              },
-              "type": "string"
-            },
-            "tenant_id": {
-              "value": "55226c2c-0b83-4621-a5cd-e8e0e57ec920",
-              "type": "string"
-            }
-          }
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
         },
         "policy": {
           "timeout": "0.12:00:00",
@@ -75,20 +55,7 @@
           "secureOutput": false
         },
         "name": "Run dbt notebook",
-        "dependsOn": [
-          {
-            "activity": "Get client-id",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          },
-          {
-            "activity": "Get client-secret",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
+        "dependsOn": []
       }
     ]
   }
